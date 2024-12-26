@@ -41,7 +41,7 @@ class ExperienceTime extends HTMLElement {
     this.render();
     // Dibujar las líneas solo después de que todos los elementos estén en el DOM
     // Timeout para asegurarse de que todos los elementos estén en el DOM
-    setTimeout(() => requestAnimationFrame(() => this.drawLineToPrevious()), 100);
+    setTimeout(() => requestAnimationFrame(() => this.drawLineToPrevious()), 300);
     
   }
 
