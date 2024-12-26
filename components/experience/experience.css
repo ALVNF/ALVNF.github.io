@@ -1,0 +1,73 @@
+.spacegrotesk-regular{
+    font-family: 'Space Grotesk';
+    font-weight: 400;
+    font-style: normal;
+}
+
+.spacegrotesk-bold{
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    font-style: normal;
+}
+
+.four-pointed-star{
+    position:relative;
+    width:10px;
+    margin-right: 40px;
+    margin-top: 8px;
+    margin-bottom: auto;
+}
+  
+.four-pointed-star:before{
+    content:"";
+    position:absolute;
+    background:white;
+    width:10px;
+    height:12px;
+    transform:rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+}
+  
+.four-pointed-star:after{
+    content:"";
+    position:absolute;
+    background:white;
+    width:10px;
+    height: 12px;
+    transform:rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.experienceContainer{
+    display: grid;
+    grid-template-columns: 50px 300px 650px; /* Ancho personalizado para cada columna */
+    gap: 20px; /* Espacio entre columnas y filas */
+    justify-content: center; /* Centra el grid horizontalmente */
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+
+#experiencePlace h1{
+    font-size: 22px;
+    margin: 0;
+}
+
+#experiencePlace h2{
+    font-size: 18px;
+    margin: 3px 0 0 0;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+#experiencePlace h3{
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.descriptionContainer{
+    margin:0;
+}
+
+li{
+    margin-bottom: 16px;
+    font-size: 19px;
+}

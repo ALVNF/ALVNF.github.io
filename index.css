@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: 'Space Grotesk';
+}
+
+
+
+.syncopate-regular {
+    font-family: "Syncopate", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.syncopate-bold {
+    font-family: "Syncopate", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+
+/* Aplica a toda la página */
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    overflow: auto; /* Asegura que el scroll siga funcionando */
+    
+    scroll-behavior: smooth;
+}
+  
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari y Edge */
+  }
+
+
+body{
+    background-color: #111111;
+}
+
+
+
+header{
+    margin-top: 3%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+header hgroup{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 7%;
+}
+
+header hgroup h1{
+    width: 120%;
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+header hgroup p{
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 20px;
+    width: 75%;
+}
+
+
+header img{
+    width: 80%;
+}
+
+
+#imgBg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8%;
+}
+
+#blur{
+    position: absolute;
+    z-index: -1;
+    width: 45%;
+    height: 90%;
+    margin-right: 0%;
+    border-radius: 50%;
+    background: rgb(0,255,229);
+    background: radial-gradient(circle, rgba(0,255,229,1) 0%, rgba(17,17,17,1) 70%);
+}
+
+#social{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 85%;
+    margin-top: 60px;
+}
+
+.btnGeneral{
+    background-color: transparent;
+    border: solid 0.5px rgba(255, 255, 255, 0.629);
+    padding: 10px 30px;
+    margin-left: 25px;
+    font-size: 17px;
+
+    transition: all 0.3s;
+}
+
+.btnGeneral:hover{
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    cursor: pointer;
+}
+
+.btnGeneral:active{
+    transform: scale(0.93);
+    transition: all 0.1s;
+}
+
+
+main section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 300px;
+}
+
+.titles{
+    font-size: 80px;
+    font-weight: bold;
+    color: #ffffff; 
+    margin: auto;
+}
+
+#projects{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#projects > :first-child{
+    margin-left: 21px;
+}
+
+#projects > :last-child{
+    margin-right: 21px;
+}
+
+
+footer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 500px;
+}
+
+footer section img{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.subtitle{
+    font-size: 50px;
+}
+
+footer section h3{
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+#contactBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+    margin-top: 100px;
+}
+
+
+
+
+
+

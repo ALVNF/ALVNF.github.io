@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alvaro Niguez</title>
+
+    <!-- Email js-->
+    <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+    <!-- Components -->
+    <script src="./components/projectcard/projectCard.js"></script>
+    <script src="./components/sidemenu/sideMenu.js"></script>
+    <script src="./components/experience/experience.js"></script>
+    <script src="./components/conctactModal/conctactModal.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <side-menu></side-menu>
+    <section>
+        <header>
+            <hgroup>
+                <h1 id="home" class="syncopate-bold">Álvaro Ñíguez Fernández,</h1>
+                <p>Frontend & AI Developer with a deep passion for robotics. 
+                    Aspiring to merge creativity and technology to drive 
+                    innovation in intelligent systems and autonomous solutions.
+                </p>
+                
+                <div id="social">
+                    <button class="btnGeneral" onclick="window.open('http://127.0.0.1:5500/files/Resume.pdf', '_blank');">RESUME</button>
+                    <button class="btnGeneral" onclick="window.open('https://www.linkedin.com/in/%C3%A1lvaro-%C3%B1%C3%ADguez-fern%C3%A1ndez', '_blank');">LINKEDIN</button>
+                </div>
+
+            </hgroup>
+
+            <div id="imgBg">
+                <div id="blur"></div>
+                <img src="./assets/me.png" alt="personal photo"/>
+            </div>
+        </header>
+    </section>
+
+    <main>
+        <section>
+        <h1 class="titles syncopate-bold" id="latestProjects">LATEST PROJECTS</h1>
+        <div id="projects"> 
+            <project-card
+            project-number="01"
+            project-name="Playharbor"
+            technologies="html5,javascript"
+            description="Website where you can play video games uploaded by the developers."
+            project-img="background_1"
+            github-link="PlayHarbor"
+            ></project-card>
+            <project-card
+            project-number="02"
+            project-name="Robot Ball Chaser"
+            technologies="ROS,python"
+            description="Small robotics project, where a robot searches for a white ball and chases it."
+            project-img="background_2"
+            github-link="Robot_BallChaser"
+            ></project-card>
+            <project-card
+            project-number="03"
+            project-name="Weekmanager"
+            technologies="html5,javascript"
+            description="Website where you can organize your week with a daily timetable adjustment."
+            project-img="background_3"
+            github-link="weekManager"
+            ></project-card>
+        </div>
+        </section>
+
+        <section>
+        <h1 class="titles syncopate-bold " id="experience">EXPERIENCE</h1>
+        <div>
+            <experience-time
+            work-place="T-Systems Iberia"
+            work-type ="Intern"
+            work-time="Mar 2022 - Jun 2022" 
+            descriptions="Developed an internal web application for seat reservation in the work environment.
+            Used computer vision with the OpenCV library for auto generating reservable places.
+            Collaborated with the engineering team.
+            Trained in the use of frontend and backend technologies."
+            ></experience-time>
+            <experience-time
+            work-place="Area F5"
+            work-type ="Intern"
+            work-time="Mar 2021 - Jun 2021" 
+            descriptions="Developed a mobile application for the company with text recognition (OCR).
+            Used websockets for sending documents.
+            Designed interfaces with Figma and React Native.
+            Worked in a production project resolving bugs."
+            ></experience-time>
+            
+        </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <section id="conctact">
+            <img src="./assets/earth_bg.png" alt="background earth image"/>
+            <h2 class="subtitle syncopate-bold " >Let's build the future together</h2>
+            <h3>Feel free to contact me</h3>
+
+            <div id="contactBtns">
+                <button class="btnGeneral" onclick="document.querySelector('conctact-modal').open()">EMAIL</button>
+                <button class="btnGeneral" onclick="window.open('https://www.linkedin.com/in/%C3%A1lvaro-%C3%B1%C3%ADguez-fern%C3%A1ndez', '_blank');">LINKEDIN</button>
+            </div>
+        </section>
+    </footer>
+    <conctact-modal></contact-modal>
+    
+</body>
+</html>

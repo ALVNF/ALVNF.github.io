@@ -1,0 +1,110 @@
+.syncopate-regular {
+    font-family: "Syncopate", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.spacegrotesk-regular{
+    font-family: 'Space Grotesk';
+    font-weight: 400;
+    font-style: normal;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 486px;
+    height: 650px;
+}
+
+
+#projectImg{
+    position: absolute;
+    width: 486px;
+    height: 650px;
+    z-index: -1;
+}
+
+
+hgroup{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+}
+
+hgroup h1{
+    font-size: 35px;
+    margin-top: 15px;
+}
+
+hgroup label{
+    color: #F6CA7C;
+    font-size: 20px;
+}
+
+.descriptionContainer{
+    padding-left: 20px;
+    margin-top: 65%;
+}
+
+.descriptionContainer p{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#techs{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.tech{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    padding: 7px;
+    margin-right: 12px;
+
+
+}
+
+.techLogo{
+    width: 26px;
+    stroke-width: 3px;
+}
+
+#viewCode{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 18px;
+    padding: 7px 35px;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+#githubLogo{
+    width: 40%;
+    margin-right: 10px;
+}
+
+#viewCode:hover{
+    transition: 0.3s;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+#viewCode:active{
+    transform: scale(0.98);
+}

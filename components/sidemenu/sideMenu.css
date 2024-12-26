@@ -1,0 +1,42 @@
+.container{
+    position: fixed;
+    top: 30%;
+    right: 1%;
+    align-self: center;
+
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    width: fit-content;
+}
+
+
+.container a:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+
+    font-family: "Syncopate", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* transition: all 0.3s; */
+    transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+a:hover{
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+.selected{
+    color: white;
+    font-weight: 700;
+    font-size: 26px;
+}
