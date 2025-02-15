@@ -5,6 +5,26 @@
     font-family: 'Space Grotesk';
 }
 
+/* width */
+::-webkit-scrollbar {
+    height: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f12a;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 
 
 .syncopate-regular {
@@ -141,7 +161,11 @@ main section{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
     margin-top: 50px;
+    padding-bottom: 20px;
 }
 
 #projects > :first-child{
@@ -149,7 +173,7 @@ main section{
 }
 
 #projects > :last-child{
-    margin-right: 21px;
+    margin-right: -21px;
 }
 
 

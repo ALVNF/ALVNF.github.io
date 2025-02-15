@@ -1,7 +1,7 @@
 const projectCard = document.createElement('template');
 projectCard.innerHTML=`
   <link rel="stylesheet" href="./components/projectcard/projectCard.css">
-  <div class="card">
+  <div class="card" >
     <hgroup>
       <label id="project-number" class="syncopate-regular">01</label>
       <h1 id="project-name" class="syncopate-regular">Playharbor</h1>
@@ -18,8 +18,6 @@ projectCard.innerHTML=`
 
     <button id="viewCode" class="spacegrotesk-regular"><img id="githubLogo" src="./assets/logos/github.svg"/>Github</button>
   
-    <img id="projectImg" src="./assets/background_2.jpg" alt="Project image"/>
-
   </div>
 `
 
@@ -60,7 +58,8 @@ class ProjectCard extends HTMLElement {
     techContainer.innerHTML = technologies.map((tech) => `<span class="tech"><img class="techLogo" src="./assets/logos/${tech}.svg"/></span>`).join('');
 
     this.shadowRoot.querySelector('#project-description').textContent = description;
-    this.shadowRoot.querySelector('#projectImg').src = `./assets/${projectImg}.jpg`;
+
+    this.shadowRoot.querySelector('.card').style.backgroundImage = 'url('+ `./assets/${projectImg}.jpg`+')';
       
   }
 

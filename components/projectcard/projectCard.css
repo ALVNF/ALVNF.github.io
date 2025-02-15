@@ -15,15 +15,11 @@
     flex-direction: column;
     width: 486px;
     height: 650px;
+    background-repeat: no-repeat;
+    background-size: 486px 650px;
+    margin-right: 200px;
 }
 
-
-#projectImg{
-    position: absolute;
-    width: 486px;
-    height: 650px;
-    z-index: -1;
-}
 
 
 hgroup{
@@ -115,12 +111,11 @@ hgroup label{
         width: 100%;
         height: 60%;
         margin: 50px auto;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
     }
     
-    #projectImg {
-        width: 95%;
-        height: 75%;
-    }
+
     hgroup h1 {
         font-size: 26px;
     }
@@ -140,5 +135,8 @@ hgroup label{
         width: 40%;
         font-size: 16px;
         padding: 7px 20px;
+        margin-top: 0px;
+        margin-bottom: 15px;
+
     }
 }
