@@ -71,3 +71,24 @@ li{
     margin-bottom: 16px;
     font-size: 19px;
 }
+
+
+@media (max-width: 768px) {
+    .experienceContainer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 20px 20px 20px 30px;
+    }
+    #experiencePlace h1 {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    #experiencePlace h2,
+    #experiencePlace h3 {
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    li {
+        font-size: 16px;
+    }
+}

@@ -108,3 +108,37 @@ hgroup label{
 #viewCode:active{
     transform: scale(0.98);
 }
+
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        height: 60%;
+        margin: 50px auto;
+    }
+    
+    #projectImg {
+        width: 95%;
+        height: 75%;
+    }
+    hgroup h1 {
+        font-size: 26px;
+    }
+    hgroup label {
+        font-size: 16px;
+    }
+    .descriptionContainer p {
+        font-size: 18px;
+    }
+
+    #githubLogo{
+        width: 20%;
+        margin-right: 10px;
+    }
+
+    #viewCode {
+        width: 40%;
+        font-size: 16px;
+        padding: 7px 20px;
+    }
+}
