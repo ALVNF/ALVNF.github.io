@@ -11,31 +11,42 @@
   font-style: normal;
 }
 
-/* Estilos para el modal */
-.modal {
-  display: none; /* Ocultarlo por defecto */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: none;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-}
 
 /* Contenido del modal */
 .modal-content {
   display: flex;
   flex-direction: column;
-  background-color: #111;
+  /* background-color: #09013620; */
+  background-color: rgba(5, 0, 34, 0.344);
+
+  border: solid 0.1px rgba(255, 255, 255, 0.090);
   margin: 3% auto;
+  margin-bottom: 0;
   padding: 20px;
   border-radius: 8px;
-  width: 80%;
-  max-width: 500px;
+  width: 55%;
   /* box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); */
   animation: slide-in 0.3s ease-out;
+}
+
+#infoSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionGroup{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sectionGroup > div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 h2{
@@ -43,6 +54,16 @@ h2{
   margin: 0 0 20px 0;
 }
 
+input{
+  width: 90%;
+}
+
+textarea{
+  width: 95%;
+  height: 60px;
+  max-height: 100px;
+  min-height: 60px;
+}
 
 input, textarea{
 
@@ -50,52 +71,89 @@ input, textarea{
 
   padding: 10px 10px;
   font-size: 15px;
-  resize: none;
+  resize: vertical;
 
   background-color: rgba(255, 255, 255, 0.088);
-  border: solid 0.3px rgba(255, 255, 255, 0.629);
-  color: white;
+  border: solid 0.1px rgba(255, 255, 255, 0.090);
+  border-radius: 4px;
+  color: #fff;
 }
 
+input:focus, textarea:focus{
+  border: solid 0.1px rgba(255, 255, 255, 0.318);
+  outline: none;
+}
 
 label{
   margin-bottom: 10px;
+  font-size: 16px;
 }
-
-.close {
-  color: #aaa;
-  margin-left: auto;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-
-}
-
-.close:hover,
-.close:focus {
-  color: rgb(255, 62, 62);
-  text-decoration: none;
-}
-
 
 .btnGeneral{
+  width: fit-content;
+  align-self: flex-end;
   background-color: transparent;
-  border: solid 0.5px rgba(255, 255, 255, 0.629);
+  background-color: rgba(255, 255, 255, 0.077);
+  border: none;
+  border-radius: 4px;
   padding: 10px 30px;
   font-size: 17px;
-
+  
   transition: all 0.3s;
-  color: white;
+  color: rgba(255, 255, 255, 0.299);
   margin-top: 20px;
 }
 
 .btnGeneral:hover{
-  background-color: rgb(255, 255, 255);
-  color: #000000;
+  background-color: rgba(255, 255, 255, 0.099);
+  color: rgba(255, 255, 255, 0.399);
   cursor: pointer;
 }
 
 .btnGeneral:active{
   transform: scale(0.93);
   transition: all 0.1s;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 80%;
+    padding: 15px;
+    margin: 10% auto 0 auto;
+  }
+
+  #infoSection {
+    flex-direction: column;
+  }
+
+  .sectionGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sectionGroup > div {
+    width: 95%;
+  }
+
+  input,
+  textarea {
+    width: 93%;
+    font-size: 14px;
+  }
+  input{
+    width: 95%;
+  }
+
+  .btnGeneral {
+    align-self: center;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  label {
+    font-size: 14px;
+  }
 }

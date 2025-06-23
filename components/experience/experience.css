@@ -35,16 +35,29 @@
     height: 12px;
     transform:rotate(45deg) skewX(22.5deg) skewY(22.5deg);
 }
-
+/*
 .experienceContainer{
     display: grid;
-    grid-template-columns: 50px 300px 650px; /* Ancho personalizado para cada columna */
-    gap: 20px; /* Espacio entre columnas y filas */
-    justify-content: center; /* Centra el grid horizontalmente */
+    grid-template-columns: 50px 300px 650px;  Ancho personalizado para cada columna 
+    gap: 20px;  Espacio entre columnas y filas 
+    justify-content: center;  Centra el grid horizontalmente 
     margin-top: 5%;
     margin-bottom: 8%;
 }
+*/
+.experienceContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 2%;
+}
 
+
+#experiencePlace{
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-top: -1%;
+}
 
 #experiencePlace h1{
     font-size: 22px;
@@ -70,25 +83,43 @@
 li{
     margin-bottom: 16px;
     font-size: 19px;
+    width: 80%;
+    text-wrap: pretty;
+    list-style: none;
+}
+
+.experience-connector-line {
+  transition: all 0.2s ease;
+  pointer-events: none;
 }
 
 
 @media (max-width: 768px) {
-    .experienceContainer {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin: 20px 20px 20px 30px;
-    }
-    #experiencePlace h1 {
-        font-size: 20px;
-        margin-left: 20px;
-    }
-    #experiencePlace h2,
-    #experiencePlace h3 {
-        margin-left: 20px;
-        font-size: 16px;
-    }
-    li {
-        font-size: 16px;
-    }
+
+  .experienceContainer {
+    margin: 30px 5%;
+    gap: 15px;
+  }
+
+  #experiencePlace {
+    margin: 0;
+  }
+
+  #experiencePlace h1 {
+    font-size: 20px;
+  }
+
+  #experiencePlace h2 {
+    font-size: 16px;
+  }
+
+  #experiencePlace h3 {
+    font-size: 14px;
+  }
+
+  li {
+    font-size: 16px;
+    width: 100%;
+  }
+
 }

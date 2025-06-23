@@ -1,0 +1,90 @@
+
+:host{
+  --rf:1;
+}
+
+/* === contenedor general === */
+.dial{
+  --core: 60vmin;      /* Ø del vídeo/luna                              */
+  --item: 8vmin;       /* lado de cada icono                           */
+  --gap : 3.5rem;      /* holgura                                      */
+  width: 100vmin;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+/* === vídeo redondo === */
+#videoBG{
+  width: var(--core);
+  height: var(--core);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* === lista radial === */
+.dial ul{
+  position: absolute;
+  inset: 0;
+  margin-left: -5%;
+  margin-bottom: 5%; 
+  padding: 0; 
+  list-style: none;
+}
+
+.dial li{
+  /*   nuevo offset global ↓          ángulo propio ↓  */
+  --θ:  calc(var(--rot,0turn) + var(--i)/var(--n) * 1turn);
+
+/* radio = radio contenedor (50 %) - radio vídeo - radio icono - gap */
+  --R:  calc(50% - var(--core)/2 - var(--item)/2 - var(--gap));
+
+  position:absolute;
+  top:50%; left:50%;
+  width:var(--item); 
+  height:var(--item);
+  display:grid; 
+  place-items:center;
+
+  transform:
+    rotate(var(--θ))
+    translate(calc(var(--R) * var(--rf)))
+    rotate(calc(-1 * var(--θ)));   /* mantiene el icono horizontal */
+}
+
+.dial li img{
+  width: 3vw;   /* opcional: margen interno del SVG */
+  height: auto;
+}
+
+span{
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .dial {
+    --core: 50vmin;
+    --item: 3vmin;
+    --gap: 2rem;
+    width: 90vmin;
+  }
+
+  .dial li img {
+    width: 7vw;
+  }
+
+  .dial ul{
+    position: absolute;
+    inset: 0;
+    margin-left: -15%;
+    margin-bottom: 20%; 
+    padding: 0; 
+    list-style: none;
+  }
+
+  span{
+    font-size: 12px;
+  }
+}

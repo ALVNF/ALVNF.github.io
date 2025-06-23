@@ -1,0 +1,9 @@
+[
+    { "src": "./assets/logos/color/javascript.svg", "name":"Javascript"},
+    { "src": "./assets/logos/color/css.svg", "name":"Css"},
+    { "src": "./assets/logos/color/python.svg", "name":"Python"},
+    { "src": "./assets/logos/color/cpp.svg", "name":"Cpp"},
+    { "src": "./assets/logos/color/cSharp.svg", "name":"C#"},
+    { "src": "./assets/logos/color/html.svg", "name":"HTML5"},
+    { "src": "./assets/logos/color/java.svg", "name":"Java"}
+]
