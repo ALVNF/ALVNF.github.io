@@ -1,29 +1,34 @@
 const modalConctact = document.createElement('template');
 modalConctact.innerHTML = `
     <link rel="stylesheet" href="./components/conctactModal/conctactModal.css">
-    <div class="modal">
-      <form id="conctactForm" class="modal-content">
-        <span class="close">&times;</span>
-        <h2 class="syncopate-bold">Conctact with me</h2>
+    <form id="conctactForm" class="modal-content">
+      <div id="infoSection"> 
+        <div class="sectionGroup">
+          <div>
+            <label for="userName">Name:</label>
+            <input type="text" name="name" id="userName" class="spacegrotesk-regular" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="userEmail">Email:</label>
+            <input type="email" name="email" id="userEmail" class="spacegrotesk-regular" placeholder="email@example.com" required />
+          </div>
+        </div>
+        <div class="sectionGroup">
+          <div>
+            <label for="company">Business:</label>
+            <input type="text" name="company" id="company" class="spacegrotesk-regular" placeholder="Business name" required />
+          </div>
+          <div>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject" class="spacegrotesk-regular" placeholder="Subject" required />
+          </div>
+        </div>
+      </div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" class="spacegrotesk-regular" placeholder="Write your message here" required></textarea>
 
-        <label for="userName">Your name:</label>
-        <input type="text" name="name" id="userName" class="spacegrotesk-regular" placeholder="Your name" required />
-
-        <label for="userEmail">Your mail:</label>
-        <input type="email" name="email" id="userEmail" class="spacegrotesk-regular" placeholder="youremail@example.com" required />
-
-        <label for="company">Business:</label>
-        <input type="text" name="company" id="company" class="spacegrotesk-regular" placeholder="Business name" required />
-
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" id="subject" class="spacegrotesk-regular" placeholder="Subject" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" class="spacegrotesk-regular" placeholder="Write your message here" required></textarea>
-
-        <button type="submit" id="sendEmailBtn"  class="btnGeneral spacegrotesk-regular">SEND EMAIL</button>
-      </form>
-    </div>
+      <button type="submit" id="sendEmailBtn"  class="btnGeneral spacegrotesk-regular">SEND</button>
+    </form>
 `;
 
 class ModalConctact extends HTMLElement {
@@ -32,9 +37,6 @@ class ModalConctact extends HTMLElement {
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(modalConctact.content.cloneNode(true));
   
-      // Referencias a elementos internos
-      this.modal = this.shadowRoot.querySelector('.modal');
-      this.closeButton = this.shadowRoot.querySelector('.close');
       this.sendEmailBtn = this.shadowRoot.querySelector('#sendEmailBtn');
     }
   
@@ -46,17 +48,6 @@ class ModalConctact extends HTMLElement {
         return;
       }
       emailjs.init('b5Sb4bIWVJ4Mosu30');
-
-
-      // Lógica para cerrar el modal al hacer clic en la "X"
-      this.closeButton.addEventListener('click', () => this.close());
-  
-      // Lógica para cerrar el modal al hacer clic fuera de su contenido
-      window.addEventListener('click', (e) => {
-        if (e.target === this.modal) {
-          this.close();
-        }
-      });
   
       // Lógica para enviar el correo
       this.shadowRoot.querySelector("#conctactForm").addEventListener('submit', (e) => {
@@ -66,18 +57,7 @@ class ModalConctact extends HTMLElement {
     }
   
     disconnectedCallback() {
-      // Eliminar eventos al desconectar el componente
-      this.closeButton.removeEventListener('click', this.close);
-      window.removeEventListener('click', this.close);
       this.sendEmailBtn.removeEventListener('click', this.sendEmail);
-    }
-  
-    open() {
-      this.modal.style.display = 'block';
-    }
-  
-    close() {
-      this.modal.style.display = 'none';
     }
   
 
@@ -129,4 +109,4 @@ class ModalConctact extends HTMLElement {
   
   
   // Registrar el Web Component
-  customElements.define('conctact-modal', ModalConctact);
+  customElements.define('contact-modal', ModalConctact);

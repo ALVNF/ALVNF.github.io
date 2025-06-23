@@ -1,62 +1,78 @@
-.container{
-    position: fixed;
-    top: 30%;
-    right: 1%;
-    align-self: center;
-
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-
-    width: fit-content;
+.container {
+  position: fixed;
+  top: 30%;
+  right: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: fit-content;
+  z-index: 2;
 }
-
 
 .container a:not(:last-child) {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
-a{
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-
-    font-family: "Syncopate", serif;
-    font-weight: 400;
-    font-style: normal;
-    /* transition: all 0.3s; */
-    transition: font-size 0.3s ease, color 0.3s ease;
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-family: "Syncopate", serif;
+  font-weight: 700;           /* usar el peso más grande desde el principio */
+  font-style: normal;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: scale(1);        /* animar tamaño visual, no el layout */
+  line-height: 1;
+  display: inline-block;
+  opacity: 0.6;               /* simula menor peso visual */
 }
 
-a:hover{
-    color: white;
-    font-size: 26px;
-    font-weight: 700;
+a:hover {
+  color: white;
+  transform: scale(1.2);      /* más grande, sin cambiar layout */
+  opacity: 1;
 }
 
-
-.selected{
-    color: white;
-    font-weight: 700;
-    font-size: 26px;
+.selected {
+  color: white;
+  transform: scale(1.2);
+  opacity: 1;
+  font-size: 26px;
 }
 
+/* ========== RESPONSIVE: MÓVIL ========== */
 @media (max-width: 768px) {
-    .container {
-      position: fixed;
-      top: auto;
-      bottom: 10px;
-      right: 10px;
-      flex-direction: row;
-    }
-    .container a {
-      margin-bottom: 0;
-      margin-right: 15px;
-      font-size: 12px;
-    }
+  .container {
+    top: auto;
+    bottom: 16px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+  }
 
-    .container a:not(:last-child) {
-        margin-bottom: 0px;
-    }
+  .container a {
+    font-size: 10px;
+    margin: 0;
+    line-height: 1;
+  }
 
+  .container a:hover {
+    font-size: 10px;
+  }
+
+  .selected {
+    font-size: 10px;
+  }
+
+  .container a:not(:last-child) {
+    margin-bottom: 0;
+  }
 }

@@ -30,7 +30,7 @@ class ProjectCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['project-number', 'project-name', 'technologies', 'description', 'project-img', 'github-link'];
+    return ['data-category','project-number', 'project-name', 'technologies', 'description', 'project-img', 'github-link'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -55,7 +55,8 @@ class ProjectCard extends HTMLElement {
 
     // Renderizar las tecnologías
     const techContainer = this.shadowRoot.querySelector('#techs');
-    techContainer.innerHTML = technologies.map((tech) => `<span class="tech"><img class="techLogo" src="./assets/logos/${tech}.svg"/></span>`).join('');
+    // techContainer.innerHTML = technologies.map((tech) => `<span class="tech"><img class="techLogo" src="./assets/logos/${tech}.svg"/></span>`).join('');
+    techContainer.innerHTML = technologies.map((tech) => `<span class="tech">${tech}</span>`).join('');
 
     this.shadowRoot.querySelector('#project-description').textContent = description;
 

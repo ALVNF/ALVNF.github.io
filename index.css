@@ -55,30 +55,50 @@ html, body {
 
 
 body{
-    background-color: #111111;
+    background-color: #030014;
+    overflow-x: hidden;
 }
 
+#particles-js{
+    position: fixed;
+    opacity: 0.5;
+    height: 50vw;
+    width: 100vw;
+    z-index: -2;
+}
 
+#bgVideo{
+    position: absolute;
+    transform: rotate(180deg);
+    /* top:-28vw; */
+    top:-27vw;
+    width: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
 
 header{
-    margin-top: 3%;
+    margin-top: 8%;
     width: 100%;
     
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
 }
 
 header hgroup{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 3%;
-    margin-top: 7%;
+    align-items: center;
+    margin-top: 10%;
 }
 
 header hgroup h1{
-    width: 120%;
+    width: 80%;
+    text-align: center;
     font-size: 80px;
     margin-bottom: 20px;
 }
@@ -86,7 +106,9 @@ header hgroup h1{
 header hgroup p{
     color: rgba(255, 255, 255, 0.65);
     font-size: 20px;
-    width: 75%;
+    width: 45%;
+    margin-top: 20px;
+    text-align: center;
 }
 
 
@@ -94,95 +116,165 @@ header img{
     width: 80%;
 }
 
-
-#imgBg{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8%;
-}
-
-#blur{
-    position: absolute;
-    z-index: -1;
-    width: 45%;
-    height: 90%;
-    margin-right: 0%;
-    border-radius: 50%;
-    background: rgb(0,255,229);
-    background: radial-gradient(circle, rgba(0,255,229,1) 0%, rgba(17,17,17,1) 70%);
-}
-
 #social{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     width: 85%;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
-.btnGeneral{
-    background-color: transparent;
-    border: solid 0.5px rgba(255, 255, 255, 0.629);
+.resumeBtn{
+    width: fit-content;
+    background: rgba(149, 0, 255, 10);
+    background: linear-gradient(90deg, rgba(149, 0, 255, 0.6) 0%, rgba(191, 0, 255, 0.9) 100%);
+    border: none;
+    border-radius: 10px;
     padding: 10px 30px;
-    margin-left: 25px;
     font-size: 17px;
-
-    transition: all 0.3s;
+    filter: drop-shadow(0px 0px 10px #bf00ffbd);
 }
 
-.btnGeneral:hover{
-    background-color: rgb(255, 255, 255);
-    color: #000000;
+.resumeBtn:hover{
     cursor: pointer;
 }
 
-.btnGeneral:active{
-    transform: scale(0.93);
-    transition: all 0.1s;
+#mouseScroll{
+    border: solid 1px white;
+    width: 30px;
+    height: 50px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
 }
 
+#mouseScroll div{
+    background-color: white;
+    border: solid 1px white;
+    width: 5px;
+    height: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30%;
+    border-radius: 10px;
+}
 
 main section{
     display: flex;
     flex-direction: column;
-    margin-top: 300px;
+    margin-top: 20vw;
 }
 
 .titles{
-    font-size: 80px;
+    font-size: 5vw;
     font-weight: bold;
     color: #ffffff; 
     margin: auto;
 }
 
-#projects{
+.scene{                     
+  margin: 0;
+  display: flex;
+  justify-content: center;    /* eje horizontal */
+  align-items:    center;     /* eje vertical   */
+  margin-top: -180px;
+}
+
+.panel .titles{
+    margin-top: 0px;
+}
+
+.skillsContainer .panel{
+    margin: 30px 0 0 0;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+}
+
+.skillsContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    overflow-x: auto;
-    overflow-y: hidden;
+}
+
+.experienceSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+
+#traceSection{
+    margin-top: 60px;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+
+#traceSection > div{
+  flex:0 0 50%;                 /* 0 = no crecer/encoger, 50 % de la fila */
+  max-width:50%;                /* evita que se pasen si hay padding */
+  box-sizing:border-box;        /* que respeten padding/border internos */
+  margin-left: 3%;
+}
+
+#traceSection > div > h1{
+    font-size:60px;
+    width: fit-content;
+    margin: 0 0 0 2%;
+}
+
+
+
+#projects{
+    display: grid;
+    grid-template-columns: repeat(3, 28%); /* 3 columnas de igual ancho */
+    column-gap: 1%;
+    row-gap: 3%;
+    justify-content: center;
     width: 100%;
     margin-top: 50px;
     padding-bottom: 20px;
 }
 
-#projects > :first-child{
-    margin-left: 21px;
+.projectsFilter{
+    margin-left: 2%;
+    font-size: 17px;
+    user-select: none;
+
 }
 
-#projects > :last-child{
-    margin-right: -21px;
+.projectsFilter > span{
+    margin-right: 2%;
+    color: #686868;
+}
+
+.projectsFilter > span:hover {
+    color: #ffffff;
+    transition: all ease-in .2s;
+    cursor: pointer;
+}
+
+.filterSelected{
+    color: #CF40FF !important;
+    font-weight: bold;
 }
 
 
 footer section{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: 500px;
+    margin-top: 350px;
+    margin-bottom: 5vw;
+    width: 100%;
 }
 
 footer section img{
@@ -193,6 +285,7 @@ footer section img{
 
 .subtitle{
     font-size: 50px;
+    text-align: center;
 }
 
 footer section h3{
@@ -200,6 +293,8 @@ footer section h3{
     font-weight: 100;
     margin-top: 20px;
     color: rgba(255, 255, 255, 0.65);
+    text-align: center;
+
 }
 
 #contactBtns{
@@ -211,14 +306,72 @@ footer section h3{
     margin-top: 100px;
 }
 
+#otherContacts{
+    display: flex;
+    flex-direction: column;
+    width: 57%;
+    align-self: center;
+    margin-bottom: 1%;
+}
+
+#otherContacts > span{
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#btnsList{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.otherContactBtn{
+  width: fit-content;
+  align-self: flex-end;
+  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.077);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 17px;
+  
+  transition: all 0.3s;
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+
+  align-items: center;
+  margin-right: 1.5%;
+}
+
+.otherContactBtn > svg{
+    width: 20%;
+    margin-right: 10px;
+}
+
+.otherContactBtn:hover{
+  background-color: rgba(255, 255, 255, 0.099);
+  cursor: pointer;
+}
+
+.otherContactBtn:active{
+  transform: scale(0.93);
+  transition: all 0.1s;
+}
 
 
 @media (max-width: 768px) {
+    #particles-js{
+        height: 100%;
+        width: 100%;
+        z-index: -2;
+    }
 
     header {
         flex-direction: column;
         align-items: center;
-        margin-top: 10%;
+        margin-top: 50%;
     }
     header hgroup {
         align-items: center;
@@ -227,27 +380,13 @@ footer section h3{
     }
     header hgroup h1 {
         font-size: 30px;
-        width: 90%;
+        width: 100%;
     }
     header hgroup p {
-        font-size: 16px;
-        width: 90%;
+        font-size: 15px;
+        width: 98%;
     }
-    #imgBg {
-        margin: 20px auto;
-        width: 70%;
-    }
-    #blur{
-        width: 100%;
-        height: 50%;
-    }
-    #social {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 30px 0 0 0;
 
-    }
 
     main section {
         margin-top: 150px;
@@ -257,6 +396,62 @@ footer section h3{
     .titles{
         font-size: 30px;
         margin: auto;
+    }
+
+    .scene{                     
+        margin: 0;
+        display: flex;
+        justify-content: center;    /* eje horizontal */
+        align-items:    center;     /* eje vertical   */
+        margin-top: -200vw;
+    }
+
+    .panel .titles{
+        margin-top: 0px;
+    }
+
+    .skillsContainer .panel {
+        width: 100vw;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+
+    .skillsContainer {
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        margin-top: 300px;
+    }
+
+    
+    .experienceSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #traceSection {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    #traceSection > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 0 30px 0;
+        text-align: center;
+    }
+
+    #traceSection > div > h1 {
+        font-size: clamp(28px, 6vw, 60px);
+        width: fit-content;
+        margin: 0 auto;
     }
 
     #projects{
@@ -307,6 +502,35 @@ footer section h3{
         font-size: 12px;
         margin: 0 25px 0 0;
     
+    }
+
+    #otherContacts {
+        width: 90%;
+        align-self: center;
+        margin-bottom: 5%;
+    }
+
+    #otherContacts > span {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    #btnsList {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .otherContactBtn {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .otherContactBtn > svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
     }
 
 }
