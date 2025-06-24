@@ -61,7 +61,9 @@ ScrollTrigger.create({
 
 /* 3 · IntersectionObserver para el menú lateral */
 const MENU_INDEX = { home:0, skills:1, experience:2, projects:3, contact:4 };
-const isMobile = matchMedia("(max-width: 768px)").matches;
+const mm   = matchMedia("(max-width: 768px)");
+let isMobile = mm.matches;
+mm.addEventListener('change', e => isMobile = e.matches);
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e=>{
@@ -122,6 +124,7 @@ gsap.timeline()
 const filters = document.querySelectorAll('.projectsFilter span');
 const projects = document.querySelectorAll('project-card');
 const noProjectsMsg = document.getElementById('noProjectsMsg');
+
 
 filters.forEach(filter => {
   filter.addEventListener('click', () => {
