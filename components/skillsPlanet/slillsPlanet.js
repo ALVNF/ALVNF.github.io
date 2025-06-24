@@ -21,18 +21,18 @@ class SkillsPlanet extends HTMLElement {
 
   }
 
-  get iconsFolder(){
+  get getIconsFolder(){
     return this._iconsSrc;
   }
-  set iconsFolder(JSONPath){
+  set setIconsFolder(JSONPath){
     this.setAttribute('icons-src',JSONPath);
   }
 
-  get videoName(){
+  get getVideoName(){
     return this._videoName;
   }
-  set videoName(name){
-    this.setAttribute('icons-src',name);
+  set setVideoName(name){
+    this.setAttribute('video-name',name);
   }
 
   attributeChangedCallback(name, oldVal, newVal){
