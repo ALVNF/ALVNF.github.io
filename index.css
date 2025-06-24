@@ -544,3 +544,15 @@ footer section h3{
 }
 
 
+/* todas tus secciones principales */
+section, .skillsWrapper{
+  min-height: 100svh;   /* alto real con la barra oculta */
+}
+
+/* fallback para navegadores sin svh */
+@supports not (height: 100svh){
+  section, .skillsWrapper{
+    min-height: 100vh;
+  }
+}
+
