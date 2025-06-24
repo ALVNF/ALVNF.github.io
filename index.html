@@ -33,7 +33,7 @@
 <body>
     <div id="particles-js"></div>
     <side-menu></side-menu>
-    <section>
+    <section data-menu="home">
         <header>
             <video id="bgVideo" autoplay muted loop>
                 <source src="./assets/videos/blackhole.webm" type="video/webm">
@@ -58,8 +58,8 @@
     </section>
 
     <main>
-        <div class="skillsWrapper">
-            <section class="skillsContainer" id="skills">
+        <div class="skillsWrapper" data-menu="skills">
+            <section class="skillsContainer" id="skills" >
                 <section class="panel coding">
                     <h1 class="titles syncopate-bold" id="coding">CODING</h1>
                     <div class="scene">
@@ -84,7 +84,7 @@
         </div>
         
 
-        <section class="experienceSection">
+        <section class="experienceSection" data-menu="experience">
             <h1 class="titles syncopate-bold " id="experience">EXPERIENCE</h1>
             <div id="traceSection">
                 <div>
@@ -149,7 +149,7 @@
 
         </section>
 
-        <section>
+        <section data-menu="projects">
             <h1 class="titles syncopate-bold" id="latestProjects">LATEST PROJECTS</h1>
             <div class="projectsFilter">
                 <span class="filterSelected">All</span>
@@ -207,7 +207,7 @@
 
 
     <footer>
-        <section id="contact">
+        <section id="contact" data-menu="contact">
             <h2 class="subtitle syncopate-bold " >Let's build the future together</h2>
             <h3>Feel free to contact me</h3>
             <contact-modal></contact-modal>

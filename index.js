@@ -39,65 +39,44 @@ function spacerHeight(){         //  ej. 2 × innerWidth  →  2 000 px
   return -getScrollAmount();     //  getScrollAmount()  devuelve negativo
 }
 
-// HOME
-ScrollTrigger.create({
-  trigger: "#home",
-  start: () => `top+=${spacerHeight()} top`,
-  end: "bottom top",
-  onEnter: () => setMenuIndex(0),
-  onEnterBack: () => setMenuIndex(0)
-});
 
-
-// EXPERIENCE
-ScrollTrigger.create({
-  trigger: "#experience",
-  start: () => `top+=${spacerHeight()} top`,
-  end: "bottom top",
-  onEnter: () => setMenuIndex(2),
-  onEnterBack: () => setMenuIndex(2)
-});
-
-// PROJECTS
-ScrollTrigger.create({
-  trigger: "#projects",
-  start: () => `top+=${spacerHeight()} top`,
-  end: "bottom top",
-  onEnter: () => setMenuIndex(3),
-  onEnterBack: () => setMenuIndex(3)
-});
-
-// CONTACT
-ScrollTrigger.create({
-  trigger: "#contact",
-  start: () => `top+=${spacerHeight()} top`,
-  end: "bottom top",
-  onEnter: () => setMenuIndex(4),
-  onEnterBack: () => setMenuIndex(4)
-});
-
-
-
-const horizontalTween = gsap.to(skills, {
+/* 1 · tween horizontal (sin ScrollTrigger dentro) */
+const horizontalTween = gsap.to(skills,{
   x: getScrollAmount,
-  ease: "none",
-  paused:true  
+  ease:"none",
+  paused:true
 });
 
+/* 2 · único pin de SKILLS */
 ScrollTrigger.create({
   trigger: ".skillsWrapper",
   start: "top top",
-  end:    () => `+=${spacerHeight()}`,
-  pin  : true,
-  pinSpacing: true,
+  end:   () => `+=${spacerHeight()}`,
+  pin: true,
   scrub: 1,
   animation: horizontalTween,
-  invalidateOnRefresh: true,
-  onEnter: () => setMenuIndex(1),
-  onEnterBack: () => setMenuIndex(1),
-  onLeave: () => setMenuIndex(2),
-  onLeaveBack: () => setMenuIndex(0),
+  anticipatePin: 1,
+  invalidateOnRefresh: true
 });
+
+/* 3 · IntersectionObserver para el menú lateral */
+const MENU_INDEX = { home:0, skills:1, experience:2, projects:3, contact:4 };
+const isMobile = matchMedia("(max-width: 768px)").matches;
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      setMenuIndex( MENU_INDEX[e.target.dataset.menu] );
+    }
+  });
+},{
+  /* en móvil basta con que la sección toque el 30 % central;
+     en escritorio exigimos ~40 % */
+  threshold : isMobile ? 0 : 0.4,
+  rootMargin: isMobile ? "-35% 0px -35% 0px" : "0px"
+});
+
+document.querySelectorAll('[data-menu]').forEach(el => observer.observe(el));
 
 
 const panels = gsap.utils.toArray(".skillsContainer .panel");
