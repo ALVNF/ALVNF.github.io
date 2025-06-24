@@ -28,71 +28,31 @@ function setMenuIndex(index) {
   }
 }
 
+const skills = document.querySelector(".skillsContainer");
+
+
+function getScrollAmount () {
+  return -(skills.scrollWidth - innerWidth);
+}
+
+function spacerHeight(){         //  ej. 2 × innerWidth  →  2 000 px
+  return -getScrollAmount();     //  getScrollAmount()  devuelve negativo
+}
+
 // HOME
 ScrollTrigger.create({
   trigger: "#home",
-  start: "top center",
+  start: () => `top+=${spacerHeight()} top`,
   end: "bottom top",
   onEnter: () => setMenuIndex(0),
   onEnterBack: () => setMenuIndex(0)
 });
 
-// SKILLS
-const contents = gsap.utils.toArray(".skillsContainer .panel");
-// const master = gsap.to(contents,{
-//     xPercent: -100 * (contents.length -1),
-//     ease: "none",
-//     scrollTrigger:{
-//       trigger: ".skillsContainer",
-//       start:"top top",
-//       end: () => "+=" + (contents.length - 1) * innerWidth,
-//       pin:true,
-//       scrub: 1,
-//       onEnter: () => setMenuIndex(1),
-//       onEnterBack: () => setMenuIndex(1),
-//       onLeave: () => setMenuIndex(2),
-//       onLeaveBack: () => setMenuIndex(0)
-//     }
-// })
-
-
-let master;
-
-function createHorizontalScroll() {
-  if (master) master.kill(); // Borra el anterior si existe
-
-  master = gsap.to(contents, {
-    xPercent: -100 * (contents.length - 1),
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".skillsContainer",
-      start: "top top",
-      end: () => "+=" + (contents.length - 1) * window.innerWidth,
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      onEnter: () => setMenuIndex(1),
-      onEnterBack: () => setMenuIndex(1),
-      onLeave: () => setMenuIndex(2),
-      onLeaveBack: () => setMenuIndex(0),
-    }
-  });
-}
-
-// Activamos en todos los tamaños
-createHorizontalScroll();
-
-// Refresca al cambiar de tamaño
-window.addEventListener("resize", () => {
-  ScrollTrigger.refresh();
-});
-
-
 
 // EXPERIENCE
 ScrollTrigger.create({
   trigger: "#experience",
-  start: "top center",
+  start: () => `top+=${spacerHeight()} top`,
   end: "bottom top",
   onEnter: () => setMenuIndex(2),
   onEnterBack: () => setMenuIndex(2)
@@ -101,7 +61,7 @@ ScrollTrigger.create({
 // PROJECTS
 ScrollTrigger.create({
   trigger: "#projects",
-  start: "top center",
+  start: () => `top+=${spacerHeight()} top`,
   end: "bottom top",
   onEnter: () => setMenuIndex(3),
   onEnterBack: () => setMenuIndex(3)
@@ -110,7 +70,7 @@ ScrollTrigger.create({
 // CONTACT
 ScrollTrigger.create({
   trigger: "#contact",
-  start: "top center",
+  start: () => `top+=${spacerHeight()} top`,
   end: "bottom top",
   onEnter: () => setMenuIndex(4),
   onEnterBack: () => setMenuIndex(4)
@@ -118,103 +78,58 @@ ScrollTrigger.create({
 
 
 
-// contents.forEach(panel => {
-//   const planet = panel.querySelector('skills-planet');
+const horizontalTween = gsap.to(skills, {
+  x: getScrollAmount,
+  ease: "none",
+  paused:true  
+});
 
-//   /* 1 — difuminar el panel */
-//   gsap.fromTo(panel,
-//     {
-//         opacity: 1,
-//         scale:1
-//     },
-//     {
-//       opacity: 0,
-//       scale:0,
-//       scrollTrigger: {
-//         containerAnimation: master,
-//         trigger: panel,
-//         start: "left+=60% center",
-//         end:   "left+=180% center",
-//         scrub: 0.6
-//       }
-//     });
-
-//   /* 2 — encoger la órbita animando la var CSS en el HOST */
-//   gsap.fromTo(planet,
-//     {"--rf": 1},
-//     {
-//       "--rf": 0,
-//       scrollTrigger: {
-//         containerAnimation: master,
-//         trigger: panel,
-//         start: "left+=60% center",
-//         end:   "left+=180% center",
-//         scrub: 0.6
-//       }
-//     });
-// });
+ScrollTrigger.create({
+  trigger: ".skillsWrapper",
+  start: "top top",
+  end:    () => `+=${spacerHeight()}`,
+  pin  : true,
+  pinSpacing: true,
+  scrub: 1,
+  animation: horizontalTween,
+  invalidateOnRefresh: true,
+  onEnter: () => setMenuIndex(1),
+  onEnterBack: () => setMenuIndex(1),
+  onLeave: () => setMenuIndex(2),
+  onLeaveBack: () => setMenuIndex(0),
+});
 
 
-ScrollTrigger.matchMedia({
-  // Pantallas grandes
-  "(min-width: 768px)": function () {
-    contents.forEach(panel => {
-      const planet = panel.querySelector('skills-planet');
+const panels = gsap.utils.toArray(".skillsContainer .panel");
 
-      gsap.fromTo(panel, { opacity: 1, scale: 1 }, {
-        opacity: 0,
-        scale: 0,
-        scrollTrigger: {
-          containerAnimation: master,
-          trigger: panel,
-          start: "left+=60% center",
-          end: "left+=180% center",
-          scrub: 0.6
-        }
-      });
+panels.forEach(panel => {
+  const planet = panel.querySelector('skills-planet');
 
-      gsap.fromTo(planet, { "--rf": 1 }, {
-        "--rf": 0,
-        scrollTrigger: {
-          containerAnimation: master,
-          trigger: panel,
-          start: "left+=60% center",
-          end: "left+=180% center",
-          scrub: 0.6
-        }
-      });
+
+  gsap.fromTo(panel,
+    { opacity: 1, scale: 1 },
+    { opacity: 0, scale: 0,
+      scrollTrigger: {
+        containerAnimation: horizontalTween, 
+        trigger: panel,
+        start: "left+=60% center",
+        end  : "left+=180% center",
+        scrub: 0.6
+      }
     });
-  },
 
-  // Pantallas pequeñas (móviles)
-  "(max-width: 767px)": function () {
-    contents.forEach(panel => {
-      const planet = panel.querySelector('skills-planet');
-
-      gsap.fromTo(panel, { opacity: 1, scale: 1 }, {
-        opacity: 0,
-        scale: 0.8, // menor para móviles
-        scrollTrigger: {
-          containerAnimation: master,
-          trigger: panel,
-          start: "left+=80% center",
-          end: "left+=200% center",
-          scrub: 0.6
-        }
-      });
-
-      gsap.fromTo(planet, { "--rf": 1 }, {
-        "--rf": 0,
-        scrollTrigger: {
-          containerAnimation: master,
-          trigger: panel,
-          start: "left+=80% center",
-          end: "left+=200% center",
-          scrub: 0.6
-        }
-      });
+  // 2-B  –– encoger la órbita del planeta --------------------------
+  gsap.fromTo(planet,
+    {"--rf": 1},
+    { "--rf": 0,
+      scrollTrigger: {
+        containerAnimation: horizontalTween,
+        trigger: panel,
+        start: "left+=60% center",
+        end  : "left+=180% center",
+        scrub: 0.6
+      }
     });
-  }
 });
 
 
