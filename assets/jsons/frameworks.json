@@ -3,7 +3,6 @@
     { "src": "./assets/logos/color/electron.svg", "name":"electron"},
     { "src": "./assets/logos/color/fastapi.svg", "name":"FastAPI"},
     { "src": "./assets/logos/color/gazebo.svg", "name":"Gazebo"},
-    { "src": "./assets/logos/color/unity.svg", "name":"Unity"},
     { "src": "./assets/logos/color/ros2.svg", "name":"ROS2"},
     { "src": "./assets/logos/color/git.svg", "name":"Git"},
     { "src": "./assets/logos/color/linux.svg", "name":"Linux"},
