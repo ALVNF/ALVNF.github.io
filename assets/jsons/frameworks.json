@@ -8,6 +8,5 @@
     { "src": "./assets/logos/color/linux.svg", "name":"Linux"},
     { "src": "./assets/logos/color/numpy.svg", "name":"Numpy"},
     { "src": "./assets/logos/color/tensorflow.svg", "name":"Tensorflow"},
-    { "src": "./assets/logos/color/opencv.svg", "name":"OpenCV"},
-    { "src": "./assets/logos/color/react.svg", "name":"React"}
+    { "src": "./assets/logos/color/opencv.svg", "name":"OpenCV"}
 ]
